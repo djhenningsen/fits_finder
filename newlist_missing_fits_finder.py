@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[ ]:
-
 
 import os
 import re
@@ -13,7 +11,7 @@ import pathlib
 from pathlib import Path
 ####class no_newlist_found(Exception)
 
-################################# Take user input for camera and filter info.
+################################# Take user input for camera and filter info  (filter need obsolete).
 
 print('\n' + "Camera name case sensitive, enter in format: WFC3ir, WFC3uvis, WFCP2, etc")
 camera_name = input("Enter camera name: ") 
@@ -84,9 +82,7 @@ for f in filter_name:
     is_fits_file = ".fits.gz"
     output_file_name = 'newlist_' + camera_name + newlist_max + '_' + f + '_missing_image_list.txt'
     output_file_path = os.path.join(path_start, output_file_name)
-    #duplicate_file_name = 'newlist_' + camera_name + newlist_max + '_' + f + '_duplicate_image_list.txt'
-    #duplicate_file_path = os.path.join(path_start, duplicate_file_name)
-    #duplicate_list - []
+
     
     if os.path.exists(output_file_path):
         os.remove(output_file_path)
@@ -110,8 +106,6 @@ for f in filter_name:
         no_match = 0
         for i in final_fit_list:
             if i in newlist_lines:
-                #duplicate += 1
-                #duplicate_file.write(i + " duplicated: " + duplicate + "times" + '\n')
                 pass
             else:
                 output_file.write(i + '\n')
